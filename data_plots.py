@@ -18,13 +18,44 @@ except:
 
 user = api.get_user("winter_muse_")
 
-dates = []
+tweets_text = []
 
 timeline = api.home_timeline()
-followers = user.followers()
-print(type(timeline))
-print(type(followers))
-print(len(followers))
-# for follower in tweepy.Cursor(api.followers, "winter_muse_").items(50):
-#     print(follower)
-#     dates.append(follower['created at'])
+
+#
+# for tweet in tweepy.Cursor(api.user_timeline, "winter_muse_").items(50):
+#     tweets_text.append(tweet.text)
+# print(tweets_text)
+#
+# most_used = {}
+# for tweet in tweets_text:
+#     tweet = tweet.split()
+#     for word in tweet:
+#         if not word in most_used.keys():
+#             most_used[word] = 1
+#         else:
+#             most_used[word] += 1
+# print(most_used)
+# print(dict(sorted(most_used.items(), key=lambda item: item[1], reverse=True)))
+most_liked = {}
+print('winter muse: ')
+for tweet in tweepy.Cursor(api.favorites, "winter_muse_").items(500):
+    if tweet.user.screen_name in most_liked.keys():
+        most_liked[tweet.user.screen_name] += 1
+    else:
+        most_liked[tweet.user.screen_name] = 1
+
+    tweets_text.append(tweet.text)
+
+print(dict(sorted(most_liked.items(), key=lambda item: item[1], reverse=True)))
+#
+# most_liked = {}
+# print('twistshoutx: ')
+# for tweet in tweepy.Cursor(api.favorites, "twistshoutx").items(500):
+#     if tweet.user.screen_name in most_liked.keys():
+#         most_liked[tweet.user.screen_name] += 1
+#     else:
+#         most_liked[tweet.user.screen_name] = 1
+#     tweets_text.append(tweet.text)
+#
+# print(dict(sorted(most_liked.items(), key=lambda item: item[1], reverse=True)))
