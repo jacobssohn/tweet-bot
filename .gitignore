@@ -1,6 +1,8 @@
-/src/credentials.py
-/src/acc_auth.py
+/bin/credentials.py
+/bin/acc_auth.py
+/bin/Graphs/used_words.png
 /venv/
 /__pycache__/
+/bin/__pycache__
 /.idea/
 /Graphs
