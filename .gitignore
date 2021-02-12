@@ -1,4 +1,5 @@
-/credentials.py
+/src/credentials.py
+/src/acc_auth.py
 /venv/
 /__pycache__/
 /.idea/

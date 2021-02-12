@@ -1,13 +1,11 @@
 import random
 import tweepy
-import nltk
-from nltk.corpus import stopwords as sw
-import matplotlib
+from bin.credentials import MorningYawn
 from matplotlib import pyplot as plt
-import pandas as pd
-from credentials import MorningYawn
+from nltk.corpus import stopwords as sw
 
-def commonly_used_words(user: str, number_of_tweets = 10):
+
+def commonly_used_words(user: str, number_of_tweets: int = 1000):
 
     auth = tweepy.OAuthHandler(MorningYawn.consumer_key, MorningYawn.consumer_secret)
     auth.set_access_token(MorningYawn.access_token, MorningYawn.access_token_secret)
@@ -82,3 +80,6 @@ def commonly_used_words(user: str, number_of_tweets = 10):
     fig.patch.set_facecolor(colours[2])
     plt.show()
     fig.savefig('Graphs/used_words.png')
+    return 'Graphs/used_words.png'
+
+
