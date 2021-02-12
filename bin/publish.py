@@ -1,11 +1,8 @@
-import logging
-import json
-
 import tweepy
 
 from bin.credentials import MorningYawn
-
 from bin.data_plots import commonly_used_words
+
 
 class MyStreamListener(tweepy.StreamListener):
     def __init__(self, api):

@@ -1,5 +1,5 @@
 import tweepy
-from bin.data_plots import commonly_used_words
+
 from bin.credentials import MorningYawn
 
 auth = tweepy.OAuthHandler(MorningYawn.consumer_key, MorningYawn.consumer_secret)

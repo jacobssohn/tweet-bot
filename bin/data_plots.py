@@ -1,8 +1,10 @@
 import random
+
 import tweepy
-from bin.credentials import MorningYawn
 from matplotlib import pyplot as plt
 from nltk.corpus import stopwords as sw
+
+from bin.credentials import MorningYawn
 
 
 def commonly_used_words(user: str, number_of_tweets: int = 1000):
