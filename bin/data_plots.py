@@ -7,7 +7,7 @@ from nltk.corpus import stopwords as sw
 from bin.credentials import MorningYawn
 
 
-def commonly_used_words(user: str, number_of_tweets: int = 1000):
+def commonly_used_words(user: str, number_of_tweets: int = 100):
 
     auth = tweepy.OAuthHandler(MorningYawn.consumer_key, MorningYawn.consumer_secret)
     auth.set_access_token(MorningYawn.access_token, MorningYawn.access_token_secret)
@@ -41,6 +41,12 @@ def commonly_used_words(user: str, number_of_tweets: int = 1000):
         if word in stopwords or 'RT' in word or  '.' in word or '#' in word:
             continue
         word = word.lower()
+        if "í" in word:
+            word = list(word)
+            for i in range(len(word)-1):
+                if word[i] == 'í':
+                    word[i] = 'i'
+            word = "".join(word)
         most_used_words_cleared.append(word)
 
     words_dict = {}
